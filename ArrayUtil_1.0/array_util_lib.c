@@ -1,6 +1,7 @@
 #include "array_util_lib.h"
 #include "stdlib.h"
 #include "assert.h"
+#include "string.h"
 
 
 ArrayUtil create(int typeSize, int length){
@@ -12,8 +13,12 @@ ArrayUtil create(int typeSize, int length){
 }
 
 ArrayUtil resize(ArrayUtil util, int length){
-	ArrayUtil array;
-	array.base = (ArrayUtil *)realloc(array.base,length);
-	return array;
+	util.base = realloc(util.base,length);
+	util.length = length;
+	return util;
+}
+int areEqual(ArrayUtil a, ArrayUtil b){
+	if(a.length!=b.length){return 0;}
+	return memcmp(a.base,b.base,a.length*a.type_size) == 0;
 }
 

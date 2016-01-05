@@ -5,7 +5,5 @@ typedef struct array_util {
 } ArrayUtil;
 
 ArrayUtil create(int typeSize, int length);
-void array_util_for_char_type(int *num);
-void array_util_for_int_type(int *num);
-void array_util_for_float_type(int *num);
-void array_util_for_double_type(int *num);
+ArrayUtil resize(ArrayUtil , int length);
+int areEqual(ArrayUtil a, ArrayUtil b);
