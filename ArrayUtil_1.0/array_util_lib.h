@@ -10,3 +10,5 @@ int areEqual(ArrayUtil a, ArrayUtil b);
 
 int findIndex(ArrayUtil util, void* element);
 
+void dispose(ArrayUtil util);
+

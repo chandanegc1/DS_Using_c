@@ -127,6 +127,8 @@ void findIndex_can_find_the_index_of_array(){
 	num_of_test++;
 }
 
+//-----------------1.2--------------
+
 
 int main(void){
 	//---------1.0--------------
@@ -137,8 +139,14 @@ int main(void){
 	ArrayUtil_can_hold_the_float_type();
 	ArrayUtil_can_hold_the_double_type();
 	areEqual_can_compare_two_ArrayUtil_whether_they_are_equla_or_not();
+	
 	//-----------1.1----------------------
+
 	findIndex_can_find_the_index_of_array();
+
+	//-------------1.2------------------
+
+
 	printf("%d passed\n",num_of_test);
 	return 0;
 }
