@@ -1,9 +1,9 @@
-#include "array_util_lib.h"
-
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
 #include "assert.h"
+#include "array_util_lib.h"
+
 void array_util_for_char_type(int *num){
 	printf("--------\n-->array_util_for_int_type \n");
 	ArrayUtil numbers = create(sizeof(char) , 5);
@@ -78,4 +78,18 @@ void array_util_for_double_type(int *num){
 	assert(d[5] == 10.10);
 
 	(*num)++;
+}
+
+
+int main(void){
+	int num_of_test = 0;
+	ArrayUtil e;
+	e = create(1,4);
+	array_util_for_char_type(&num_of_test);
+	array_util_for_int_type(&num_of_test);
+	array_util_for_float_type(&num_of_test);
+	array_util_for_double_type(&num_of_test);
+	// printf("%lu\n",sizeof(e.type_size));
+	printf("%d passed\n",num_of_test);
+	return 0;
 }
