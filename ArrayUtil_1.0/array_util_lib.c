@@ -12,12 +12,6 @@ ArrayUtil create(int typeSize, int length){
 	return array;
 }
 
-// ArrayUtil resize(ArrayUtil util, int length){
-// 	ArrayUtil array;
-// 	array.base = (ArrayUtil *)realloc(array.base,length);
-// 	return array;
-// }
-
 void array_util_for_int_type(int *num){
 	ArrayUtil numbers = create(sizeof(int) , 5);
 
