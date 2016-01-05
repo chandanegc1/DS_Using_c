@@ -22,3 +22,14 @@ int areEqual(ArrayUtil a, ArrayUtil b){
 	return memcmp(a.base,b.base,a.length*a.type_size) == 0;
 }
 
+//------------1.1---------------
+
+int findIndex(ArrayUtil util, void* element){
+	for(int i=0;i<util.length;i++){
+		if(memcmp(util.base,element,util.type_size)==0){
+			return i;			
+		}
+		util.base += util.type_size;
+	}
+	return -1;
+}

@@ -15,8 +15,8 @@ void ArrayUtil_can_hold_the_char_type(){
 
 	assert(c[0]==4);
 	assert(c[1] =='B');
-	// assert(strcmp(c[2],'C'));
-	// assert(c[3] == 0);
+	assert(c[2]=='C');
+	assert(c[3] == 0);
 
 	num_of_test++;
 }
@@ -109,9 +109,27 @@ void areEqual_can_compare_two_ArrayUtil_whether_they_are_equla_or_not(){
 	assert(areEqual(numbers,_numbers)==0);
 	num_of_test++;
 }
+//--------------1.1--------------
+
+void findIndex_can_find_the_index_of_array(){
+	printf("--------\n-->findIndex_can_find_the_index_of_array\n");
+
+	ArrayUtil numbers = create(sizeof(int) , 5);
+
+	int *s = (int *)numbers.base;
+	s[0] = 92, s[1] = 70, s[2] = 30;
+	assert(findIndex(numbers,s)==0);
+	assert(findIndex(numbers,&s[1])==1);
+	assert(findIndex(numbers,&s[2])==2);
+	assert(findIndex(numbers,&s[3])==3);
+
+
+	num_of_test++;
+}
+
 
 int main(void){
-	
+	//---------1.0--------------
 	create_can_create_the_array_of_given_typeSize_and_given_length();
 	resize_can_resize_the_array_with_given_new_size_and_keep_the_old_value_if_new_size_is_greater_then_old();
 	ArrayUtil_can_hold_the_char_type();
@@ -119,6 +137,8 @@ int main(void){
 	ArrayUtil_can_hold_the_float_type();
 	ArrayUtil_can_hold_the_double_type();
 	areEqual_can_compare_two_ArrayUtil_whether_they_are_equla_or_not();
+	//-----------1.1----------------------
+	findIndex_can_find_the_index_of_array();
 	printf("%d passed\n",num_of_test);
 	return 0;
 }
