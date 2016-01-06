@@ -7,7 +7,7 @@
 int num_of_test = 0;
 
 void ArrayUtil_can_hold_the_char_type(){
-	printf("--------\n-->ArrayUtil_can_hold_the_int_type \n");
+	printf("--------\n-->ArrayUtil_can_hold_the_char_type \n");
 	ArrayUtil numbers = create(sizeof(char) , 5);
 
 	char *c = (char *)numbers.base;
@@ -130,6 +130,35 @@ void findIndex_can_find_the_index_of_array(){
 //-----------------1.2--------------
 
 
+//----------------1.3----------------
+
+int isEven(void *hint,void *item){
+	int num = *(int *)item;
+	if(num % 2==0)
+		return 1;
+	return 0;
+}
+
+int isDivisible(void* hint, void* item){
+	int divider  =*(int *)hint;
+	int dividend  =*(int *)item;
+	if(dividend % divider==0)
+		return 1;
+	return 0;	
+}
+
+void findFirst_find_first_element_of_criteria(){
+	printf("--------\n-->findFirst_find_first_element_of_criteria.\n");
+	ArrayUtil numbers = create(sizeof(int) , 5);
+	MatchFunc *_isEven = isEven ,*_isDivisible = isDivisible;
+	int *s = (int *)numbers.base;
+	s[0] = 92, s[1] = 70, s[2] = 30;
+	int _hint = 5;
+	assert(92 == *(int *)findFirst(numbers,_isEven,0));
+	
+	num_of_test++;
+}
+
 int main(void){
 	//---------1.0--------------
 	create_can_create_the_array_of_given_typeSize_and_given_length();
@@ -142,10 +171,13 @@ int main(void){
 	
 	//-----------1.1----------------------
 
-	findIndex_can_find_the_index_of_array();
+	findFirst_find_first_element_of_criteria();
 
 	//-------------1.2------------------
 
+	//----------------1.3----------------
+
+	
 
 	printf("%d passed\n",num_of_test);
 	return 0;

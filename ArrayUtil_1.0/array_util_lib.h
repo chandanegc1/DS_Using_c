@@ -12,3 +12,6 @@ int findIndex(ArrayUtil util, void* element);
 
 void dispose(ArrayUtil util);
 
+
+typedef int (MatchFunc)(void * , void *);
+void* findFirst(ArrayUtil util, MatchFunc* match, void* hint);
