@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "assert.h"
 #include "string.h"
+#include <stdio.h>
 
 
 ArrayUtil create(int typeSize, int length){
@@ -39,22 +40,38 @@ void dispose(ArrayUtil util){
 	free(util.base);
 }
 
+
 //----------------1.3---------------
 
-void* findFirst(ArrayUtil util, MatchFunc* match, void* hint){
-	ArrayUtil array;
-	int j=0;
-	for(int i=0;i<util.length;i++){
-		if(!hint){
-			if(1==match(0,util.base)){
-				return &util.base[i];	
-			} else
-			if(match(hint,util.base)==1){
-				return &util.base[i];
-			}
-		}
+
+void *findFirst(ArrayUtil util, MatchFunc* match, void* hint){
+	for(int i= 0;i<util.length-1;i++){
+		if(hint !=0 && match(0,util.base)==1)
+			return &util.base[i];
+		if(match(hint,util.base)==1)
+			return &util.base[i];
 	}
 	return NULL;
 }
+// void* get(ArrayList *list, int index){
+// 	if (index < 0 || index >= list->length) return NULL;
+// 	return list->base[index];
+// };
 
+//---------------1.4------------------------------
 
+void *findLast(ArrayUtil util, MatchFunc* match, void* hint){
+	void *lastValue = (void *)NULL;
+	//void *array = util.base;
+	for (int i = 0; i < util.length; ++i){
+		if(match(hint,util.base) == 1){
+			lastValue = util.base;
+		}
+		util.base += util.type_size;
+	}
+	return lastValue;
+}	
+// int count(ArrayUtil util, MatchFunc* match, void* hint){
+	
+
+// }

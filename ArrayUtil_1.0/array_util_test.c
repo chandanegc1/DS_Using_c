@@ -127,11 +127,6 @@ void findIndex_can_find_the_index_of_array(){
 	num_of_test++;
 }
 
-//-----------------1.2--------------
-
-
-//----------------1.3----------------
-
 int isEven(void *hint,void *item){
 	int num = *(int *)item;
 	if(num % 2==0)
@@ -147,20 +142,30 @@ int isDivisible(void* hint, void* item){
 	return 0;	
 }
 
-void findFirst_find_first_element_of_criteria(){
+void findFirst_find_first_element_of_matching_criteria(){
 	printf("--------\n-->findFirst_find_first_element_of_criteria.\n");
 	ArrayUtil numbers = create(sizeof(int) , 5);
 	MatchFunc *_isEven = isEven ,*_isDivisible = isDivisible;
 	int *s = (int *)numbers.base;
-	s[0] = 92, s[1] = 70, s[2] = 30;
+	s[0] = 92, s[1] = 70, s[2] = 30,s[3]=3,s[4]=5;
 	int _hint = 5;
 	assert(92 == *(int *)findFirst(numbers,_isEven,0));
 	
 	num_of_test++;
 }
 
+void findLast_find_last_element_of_matching_criteria(){
+	printf("--------\n-->findLast_find_last_element_of_matching_criteria.\n");
+	ArrayUtil numbers = create(sizeof(int) , 5);
+	int *s = (int *)numbers.base;
+	s[0] = 92, s[1] = 70, s[2] = 30,s[3]=12,s[4]=9;
+	assert(12== *(int *)findLast(numbers,isEven,0));
+	
+	num_of_test++;
+}
+
 int main(void){
-	//---------1.0--------------
+	//---------1.0------------------------------------
 	create_can_create_the_array_of_given_typeSize_and_given_length();
 	resize_can_resize_the_array_with_given_new_size_and_keep_the_old_value_if_new_size_is_greater_then_old();
 	ArrayUtil_can_hold_the_char_type();
@@ -169,16 +174,17 @@ int main(void){
 	ArrayUtil_can_hold_the_double_type();
 	areEqual_can_compare_two_ArrayUtil_whether_they_are_equla_or_not();
 	
-	//-----------1.1----------------------
+	//-----------1.1----------------------------------
+		
+		findIndex_can_find_the_index_of_array();	
 
-	findFirst_find_first_element_of_criteria();
+	//-------------1.2--------------------------------
+		//Not need test for 1.2
+	//----------------1.3------------------------------	
 
-	//-------------1.2------------------
-
-	//----------------1.3----------------
-
-	
-
+	findFirst_find_first_element_of_matching_criteria();
+	findLast_find_last_element_of_matching_criteria();
+	//---------------1.4--------
 	printf("%d passed\n",num_of_test);
 	return 0;
 }
