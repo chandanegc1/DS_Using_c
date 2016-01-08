@@ -183,9 +183,14 @@ void filter_can_filter_element_from_elements(){
 	s[0] = 9, s[1] = 70, s[2] = 30,s[3]=3,s[4]=5;
 	int hint = 3;
 	int _hint = 7;
+	filter(numbers,isEven,NULL ,&destination.base ,3);
+	int *ar = (int *)destination.base;
+	assert(ar[0] == 70);
+	assert(ar[1] == 30);
 	assert(filter(numbers,isEven,NULL ,&destination.base ,3)==2);
-	assert(filter(numbers,isDivisible,&hint ,&destination.base ,3)==3);
+	assert(filter(numbers,isDivisible,&hint ,&destination.base ,3)==2);
 
+	num_of_test++;
 }
 
 void increment_by_hint(void* hint, void* sourceItem, void* destinationItem){
@@ -197,6 +202,8 @@ void increment_by_hint(void* hint, void* sourceItem, void* destinationItem){
 }
 
 void map_can_maps_source_to_destination_using_the_provided_convert_function(){
+	printf("--------\n-->map_can_maps_source_to_destination_using_the_provided_convert_function.\n");
+
 	ArrayUtil source = create(sizeof(int) , 3);
 	int *s = (int *)source.base;
 	int hint =3; 
@@ -208,7 +215,31 @@ void map_can_maps_source_to_destination_using_the_provided_convert_function(){
 	assert(array[0] == 12);
 	assert(array[1] == 73);
 	assert(array[2] == 15);
+
+	num_of_test++;
 }	
+
+void decrement_by_hint(void* hint, void* item){
+	int *sa = (int *)item;
+	int _hint = *(int *)hint;
+	*sa = *sa - _hint;	
+}
+void forEach_can_do_something_to_destionation_using_the_provided_funcjtion(){
+	printf("--------\n-->forEach_can_do_something_to_destionation_using_the_provided_funcjtion.\n");
+
+	ArrayUtil source = create(sizeof(int) , 3);
+	int *s = (int *)source.base;
+	int hint =3; 
+	s[0] = 9, s[1] = 70, s[2]=12;
+
+	forEach(source,decrement_by_hint,&hint);
+	int *array = (int *)source.base;
+	assert(array[0] == 6);
+	assert(array[1] == 67);
+	assert(array[2] == 9);
+
+	num_of_test++;
+}
 
 int main(void){
 	//---------1.0------------------------------------
@@ -246,7 +277,9 @@ int main(void){
 
 	map_can_maps_source_to_destination_using_the_provided_convert_function();
 
-	//-------------
+	//-------------------1.8-----------------
+
+	forEach_can_do_something_to_destionation_using_the_provided_funcjtion();
 	printf("%d passed\n",num_of_test);
 	return 0;
 }

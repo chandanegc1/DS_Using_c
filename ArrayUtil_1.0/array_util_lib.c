@@ -82,13 +82,14 @@ int count(ArrayUtil util, MatchFunc* match, void* hint){
 
 int filter(ArrayUtil util, MatchFunc* match, void* hint, void** destination, int maxItems ){
 	int count = 0;
-	for (int i = 0; i < util.length; ++i){
+	void *_destination = *destination;
+	for (int i = 0; i < maxItems; ++i){
 		if(match(hint,util.base) == 1){
+			memcpy(_destination,util.base,util.type_size);
 			count++;
-			memcpy(destination ,util.base,maxItems);
+			_destination += util.type_size;
 		}
 		util.base += util.type_size;
-		destination +=util.type_size;
 	}
 	return count;
 }
@@ -102,3 +103,9 @@ void map(ArrayUtil source, ArrayUtil destination, ConvertFunc* convert, void* hi
 	}
 }
 
+void forEach(ArrayUtil util, OperationFunc* decrement, void* hint){
+	for(int i=0;i<util.length;i++){
+		decrement(hint ,util.base);
+		util.base += util.type_size;
+	}
+}
