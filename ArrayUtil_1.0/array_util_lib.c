@@ -53,16 +53,12 @@ void *findFirst(ArrayUtil util, MatchFunc* match, void* hint){
 	}
 	return NULL;
 }
-// void* get(ArrayList *list, int index){
-// 	if (index < 0 || index >= list->length) return NULL;
-// 	return list->base[index];
-// };
+
 
 //---------------1.4------------------------------
 
 void *findLast(ArrayUtil util, MatchFunc* match, void* hint){
 	void *lastValue = (void *)NULL;
-	//void *array = util.base;
 	for (int i = 0; i < util.length; ++i){
 		if(match(hint,util.base) == 1){
 			lastValue = util.base;
@@ -71,7 +67,29 @@ void *findLast(ArrayUtil util, MatchFunc* match, void* hint){
 	}
 	return lastValue;
 }	
-// int count(ArrayUtil util, MatchFunc* match, void* hint){
-	
+int count(ArrayUtil util, MatchFunc* match, void* hint){
+	void *lastValue = (void *)NULL;
+	int count = 0;
+	for (int i = 0; i < util.length; ++i){
+		if(match(hint,util.base) == 1){
+			count++;
+			lastValue = util.base;
+		}
+		util.base += util.type_size;
+	}
+	return count;
+}
 
-// }
+int filter(ArrayUtil util, MatchFunc* match, void* hint, void** destination, int maxItems ){
+	int count = 0;
+	for (int i = 0; i < util.length; ++i){
+		if(match(hint,util.base) == 1){
+			count++;
+			memcmp(*destination ,util.base,maxItems);
+		}
+		util.base += util.type_size;
+		destination +=util.type_size;
+	}
+	return count;
+}
+

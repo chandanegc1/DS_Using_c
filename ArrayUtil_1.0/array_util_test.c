@@ -148,9 +148,7 @@ void findFirst_find_first_element_of_matching_criteria(){
 	MatchFunc *_isEven = isEven ,*_isDivisible = isDivisible;
 	int *s = (int *)numbers.base;
 	s[0] = 92, s[1] = 70, s[2] = 30,s[3]=3,s[4]=5;
-	int _hint = 5;
 	assert(92 == *(int *)findFirst(numbers,_isEven,0));
-	
 	num_of_test++;
 }
 
@@ -162,6 +160,29 @@ void findLast_find_last_element_of_matching_criteria(){
 	assert(12== *(int *)findLast(numbers,isEven,0));
 	
 	num_of_test++;
+}
+
+void count_can_count_the_no_of_matches(){
+	printf("--------\n-->count_can_count_the_no_of_matches.\n");
+
+	ArrayUtil numbers = create(sizeof(int) , 5);
+	int *s = (int *)numbers.base;
+	s[0] = 92, s[1] = 70, s[2] = 30,s[3]=3,s[4]=5;
+	assert(count(numbers,isEven,0)==3);
+	num_of_test++;
+}
+
+void filter_can_filter_element_from_elements(){
+	printf("--------\n-->filter_can_filter_element_from_elements.\n");
+
+	ArrayUtil numbers = create(sizeof(int) , 5);
+	ArrayUtil destination = create(sizeof(int),3);
+	int *s = (int *)numbers.base;
+
+	s[0] = 9, s[1] = 70, s[2] = 30,s[3]=3,s[4]=5;
+	int hint = 3;
+	assert(filter(numbers,isEven,NULL ,&destination.base ,3)==2);
+
 }
 
 int main(void){
@@ -176,15 +197,25 @@ int main(void){
 	
 	//-----------1.1----------------------------------
 		
-		findIndex_can_find_the_index_of_array();	
+	findIndex_can_find_the_index_of_array();	
 
 	//-------------1.2--------------------------------
 		//Not need test for 1.2
 	//----------------1.3------------------------------	
 
 	findFirst_find_first_element_of_matching_criteria();
-	findLast_find_last_element_of_matching_criteria();
+	
 	//---------------1.4--------
+
+	findLast_find_last_element_of_matching_criteria();
+
+	//-----------------1.5---------------------
+
+	count_can_count_the_no_of_matches();
+
+	//------------------1.6--------------------
+
+	filter_can_filter_element_from_elements();
 	printf("%d passed\n",num_of_test);
 	return 0;
 }
