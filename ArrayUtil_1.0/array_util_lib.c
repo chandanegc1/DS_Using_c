@@ -85,11 +85,20 @@ int filter(ArrayUtil util, MatchFunc* match, void* hint, void** destination, int
 	for (int i = 0; i < util.length; ++i){
 		if(match(hint,util.base) == 1){
 			count++;
-			memcmp(*destination ,util.base,maxItems);
+			memcpy(destination ,util.base,maxItems);
 		}
 		util.base += util.type_size;
 		destination +=util.type_size;
 	}
 	return count;
+}
+
+void map(ArrayUtil source, ArrayUtil destination, ConvertFunc* convert, void* hint){
+	void *maped = (void *)NULL;
+	for(int i=0;i<source.length;i++){
+		convert(hint ,source.base,destination.base);
+		source.base += source.type_size;
+		destination.base +=source.type_size;
+	}
 }
 

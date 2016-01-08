@@ -135,10 +135,11 @@ int isEven(void *hint,void *item){
 }
 
 int isDivisible(void* hint, void* item){
-	int divider  =*(int *)hint;
+	int _divider  =*(int *)hint;
 	int dividend  =*(int *)item;
-	if(dividend % divider==0)
+	if(dividend % _divider==0){
 		return 1;
+	} else
 	return 0;	
 }
 
@@ -181,9 +182,33 @@ void filter_can_filter_element_from_elements(){
 
 	s[0] = 9, s[1] = 70, s[2] = 30,s[3]=3,s[4]=5;
 	int hint = 3;
+	int _hint = 7;
 	assert(filter(numbers,isEven,NULL ,&destination.base ,3)==2);
+	assert(filter(numbers,isDivisible,&hint ,&destination.base ,3)==3);
 
 }
+
+void increment_by_hint(void* hint, void* sourceItem, void* destinationItem){
+	int source = *(int *)sourceItem;
+	int _hint = *(int *)hint;
+
+	int *destination = (int *)destinationItem;
+	*destination = source+_hint;
+}
+
+void map_can_maps_source_to_destination_using_the_provided_convert_function(){
+	ArrayUtil source = create(sizeof(int) , 3);
+	int *s = (int *)source.base;
+	int hint =3; 
+	s[0] = 9, s[1] = 70, s[2]=12;
+	ArrayUtil destination = create(sizeof(int),3);
+
+	map(source,destination,increment_by_hint,&hint);
+	int *array = (int *)destination.base;
+	assert(array[0] == 12);
+	assert(array[1] == 73);
+	assert(array[2] == 15);
+}	
 
 int main(void){
 	//---------1.0------------------------------------
@@ -216,6 +241,12 @@ int main(void){
 	//------------------1.6--------------------
 
 	filter_can_filter_element_from_elements();
+
+	//-------------------1.7------------------
+
+	map_can_maps_source_to_destination_using_the_provided_convert_function();
+
+	//-------------
 	printf("%d passed\n",num_of_test);
 	return 0;
 }

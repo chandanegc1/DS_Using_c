@@ -21,3 +21,6 @@ void* findLast(ArrayUtil util, MatchFunc* match, void* hint);
 int count(ArrayUtil util, MatchFunc* match, void* hint);
 
 int filter(ArrayUtil util, MatchFunc* match, void* hint, void** destination, int maxItems );
+
+typedef void ConvertFunc(void* hint, void* sourceItem, void* destinationItem);
+void map(ArrayUtil source, ArrayUtil destination, ConvertFunc* convert, void* hint);
