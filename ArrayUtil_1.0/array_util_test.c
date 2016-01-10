@@ -224,8 +224,8 @@ void decrement_by_hint(void* hint, void* item){
 	int _hint = *(int *)hint;
 	*sa = *sa - _hint;	
 }
-void forEach_can_do_something_to_destionation_using_the_provided_funcjtion(){
-	printf("--------\n-->forEach_can_do_something_to_destionation_using_the_provided_funcjtion.\n");
+void forEach_can_do_something_to_destionation_using_the_provided_function(){
+	printf("--------\n-->forEach_can_do_something_to_destionation_using_the_provided_function.\n");
 
 	ArrayUtil source = create(sizeof(int) , 3);
 	int *s = (int *)source.base;
@@ -237,6 +237,31 @@ void forEach_can_do_something_to_destionation_using_the_provided_funcjtion(){
 	assert(array[0] == 6);
 	assert(array[1] == 67);
 	assert(array[2] == 9);
+
+	num_of_test++;
+}
+
+void *sum(void *hint,void *initialValue,void *item){
+	*(int *)initialValue = *(int *)initialValue + *(int *)item+*(int *)hint;
+	return  initialValue;
+}
+void reduce_can_reduce_the_array_and_will_return_one_ans(){
+	printf("--------\n-->reduce_can_reduce_the_array_and_will_return_one_ans.\n");
+
+	ArrayUtil numbers = create(sizeof(int) , 5);
+
+	int *num = (int *)numbers.base;
+
+	int hint =0;
+	int initialValue = 0;
+	num[0]=1,num[1]=2,num[2]=3,num[3]=4,num[4]=5;
+	assert(*(int *)reduce(numbers,sum,&hint,&initialValue)==15);
+	ArrayUtil _numbers = create(sizeof(int) , 5);
+	int *_num = (int *)_numbers.base;
+	int _hint = 1;
+	int _initialValue =1;
+	_num[0]=1,_num[1]=2,_num[2]=3,_num[3]=4,_num[4]=5;
+	assert(*(int *)reduce(_numbers,sum,&_hint,&_initialValue)==21);
 
 	num_of_test++;
 }
@@ -279,7 +304,12 @@ int main(void){
 
 	//-------------------1.8-----------------
 
-	forEach_can_do_something_to_destionation_using_the_provided_funcjtion();
+	forEach_can_do_something_to_destionation_using_the_provided_function();
+
+	//----------------------1.9--------------------
+
+	reduce_can_reduce_the_array_and_will_return_one_ans();
+
 	printf("%d passed\n",num_of_test);
 	return 0;
 }
