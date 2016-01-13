@@ -35,3 +35,12 @@ void forEach(Linked_list list,ElementProcessor e){
 		list.head = list.head->next;
 	}
 }	
+
+void *getElementAt(Linked_list list, int index){
+  for(int i=0;i<list.length;i++){
+  	if(i==index)
+      return list.head->value;
+  	list.head = list.head->next;
+  }
+  return NULL;
+}

@@ -17,3 +17,5 @@ void *get_last_element(Linked_list);
 typedef void (*ElementProcessor)(void *);
 void forEach(Linked_list,ElementProcessor);
 
+void * getElementAt(Linked_list, int);
+

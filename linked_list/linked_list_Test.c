@@ -75,3 +75,28 @@ void test_forEach_can_do_something_with_each_element(){
   forEach(list,doSomething);
   assert(*(int *)list.head->value==24);
 }
+void test_getElementAt_returns_the_value_at_index(){
+  Linked_list list;
+  int _0th,_1st,_2nd,_3rd,_4th,_5th;
+  _0th =22;
+  _1st =23;
+  _2nd =24;
+  _3rd =25;
+  _4th =26;
+  _5th =27;
+  add_to_list(&list ,&_0th);
+  add_to_list(&list ,&_1st);
+  add_to_list(&list ,&_2nd);
+  add_to_list(&list ,&_3rd);
+  add_to_list(&list ,&_4th);
+  add_to_list(&list ,&_5th);
+  
+  assert(*(int *)getElementAt(list,0)==22);
+  assert(*(int *)getElementAt(list,1)==23);
+  assert(*(int *)getElementAt(list,2)==24);
+  assert(*(int *)getElementAt(list,3)==25);
+  assert(*(int *)getElementAt(list,4)==26);
+  assert(*(int *)getElementAt(list,5)==27);
+  assert(getElementAt(list,9)==NULL);
+} 
+
