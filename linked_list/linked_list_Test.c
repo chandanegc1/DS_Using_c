@@ -102,19 +102,26 @@ void test_getElementAt_returns_the_value_at_index(){
 
 void test_indexOf_can_find_the_first_index_of_element_in_array(){
   Linked_list list;
-  int _0th,_1st,_2nd,_3rd,_4th,_5th;
+  int _0th,_1st,_2nd,_3rd,_4th,_5th,_6th;
   _0th =22;
   _1st =23;
   _2nd =22;
-  _3rd =23;
+  _3rd =29;
   _4th =26;
   _5th =27;
+  _6th =27;
   add_to_list(&list ,&_0th);
   add_to_list(&list ,&_1st);
   add_to_list(&list ,&_2nd);
   add_to_list(&list ,&_3rd);
   add_to_list(&list ,&_4th);
   add_to_list(&list ,&_5th);
+  add_to_list(&list ,&_6th);
+
   assert(indexOf(list,&_0th)==0);
+  assert(indexOf(list,&_1st)==1);
+  assert(indexOf(list,&_1st)==1);
+  assert(indexOf(list,&_4th)==4);
+  assert(indexOf(list,&_5th)==5); 
 
 }

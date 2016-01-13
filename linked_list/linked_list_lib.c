@@ -46,9 +46,11 @@ void *getElementAt(Linked_list list, int index){
 }
 
 int indexOf(Linked_list list, void *value){
-  for(int i=0;i<list.length;i++){
-    if(*(int *)list.head->value==*(int *)value);
-    return i;
+	int i;
+  for(i=0;i<list.length;i++){
+    if(memcmp(list.head->value,value,sizeof(value))==0){
+    	return i;
+    }
     list.head=list.head->next;
   }
   return -1;
