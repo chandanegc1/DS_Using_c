@@ -17,10 +17,21 @@ int add_to_list(Linked_list *list ,void *value){
 	else{
 		list->tail->next = e;
 		list->tail = e;
-	}
-	list->head->next=value;
-	
+	}	
 	list->length +=1;
 	return list->length;
-
 }
+
+void *get_first_element(Linked_list list){
+	return list.head->value;
+}
+void *get_last_element(Linked_list list){
+	return list.tail->value;
+}
+
+void forEach(Linked_list list,ElementProcessor e){
+	for(int i=0;i<list.length;i++){
+		e(list.head->value);
+		list.head = list.head->next;
+	}
+}	

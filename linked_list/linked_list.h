@@ -11,3 +11,9 @@ typedef struct linkedList{
 Linked_list createList();
 int add_to_list(Linked_list * , void *);
 
+void *get_first_element(Linked_list);
+void *get_last_element(Linked_list);
+
+typedef void (*ElementProcessor)(void *);
+void forEach(Linked_list,ElementProcessor);
+
