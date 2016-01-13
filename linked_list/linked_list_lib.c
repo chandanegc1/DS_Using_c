@@ -44,3 +44,12 @@ void *getElementAt(Linked_list list, int index){
   }
   return NULL;
 }
+
+int indexOf(Linked_list list, void *value){
+  for(int i=0;i<list.length;i++){
+    if(*(int *)list.head->value==*(int *)value);
+    return i;
+    list.head=list.head->next;
+  }
+  return -1;
+}

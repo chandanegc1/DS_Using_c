@@ -19,3 +19,4 @@ void forEach(Linked_list,ElementProcessor);
 
 void * getElementAt(Linked_list, int);
 
+int indexOf(Linked_list, void *);
