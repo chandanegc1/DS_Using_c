@@ -1,5 +1,6 @@
 #include "linked_list.h"
 #include <stdlib.h>
+#include <string.h>
 Linked_list createList(){
 	Linked_list list;
 	list.head=NULL;
