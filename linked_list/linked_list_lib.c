@@ -57,3 +57,30 @@ int indexOf(Linked_list list, void *value){
   return -1;
 }
 
+void *deleteElementAt(Linked_list *list, int index){
+	Element *temp = list->head;
+	if(index==0){
+		list->head=temp->next;
+		free(temp);
+		list->length--;
+		return list;
+	}
+	if(index==list->length-1){
+		temp = getElementAt(*list,index-1);
+		list->tail=temp;
+		list->tail->next=NULL;
+		list->length--;
+		free(temp);
+		return list;
+	}
+	else{
+		Element *prev = getElementAt(*list,index-1);
+		Element *ele =  getElementAt(*list,index);
+		prev->next=ele->next;
+		list->length--;
+		free(ele);
+		return list;
+	};
+	
+	return NULL;
+};

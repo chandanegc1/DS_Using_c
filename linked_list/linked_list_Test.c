@@ -307,4 +307,203 @@ void test_indexOf_can_find_the_index_of_double_type_of_element_from_list(){
 
 }
 
+void test_deleteElement_can_delete_the_first_element_of_int_type_from_list(){
+  Linked_list list=createList();
+  int _1st =22,_2nd=23,_3rd=24;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
 
+  
+  assert(list.length==3);
+  assert(TYPEINT(list.head->value)==22);
+  assert(TYPEINT(list.tail->value)==24);
+
+
+  deleteElementAt(&list,0);
+   
+  assert(TYPEINT(list.head->value)==23);
+  assert(TYPEINT(list.tail->value)==24);
+  assert(list.length==2);
+
+}
+
+
+void test_deleteElement_can_delete_the_first_element_of_CHAR_type_from_list(){
+  Linked_list list=createList();
+  char _1st ='A',_2nd='a',_3rd='b';
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPECHAR(list.head->value)=='A');
+  assert(TYPECHAR(list.tail->value)=='b');
+
+
+  deleteElementAt(&list,0);
+   
+  assert(TYPECHAR(list.head->value)=='a');
+  assert(TYPECHAR(list.tail->value)=='b');
+  assert(list.length==2);
+
+
+}
+
+void test_deleteElement_can_delete_the_first_element_of_float_type_from_list(){
+  Linked_list list=createList();
+  float _1st =22.5,_2nd=23.0,_3rd=24.50;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPEFLOAT(list.head->value)==22.5);
+  assert(TYPEFLOAT(list.tail->value)==24.50);
+
+
+  deleteElementAt(&list,0);
+   
+  assert(TYPEFLOAT(list.head->value)==23.0);
+  assert(TYPEFLOAT(list.tail->value)==24.50);
+  assert(list.length==2);
+
+
+}
+
+void test_deleteElement_can_delete_the_first_element_of_DOUBLE_type_from_list(){
+  Linked_list list=createList();
+  double _1st =229876897678976578976786.5908765789657896578;
+  double _2nd=2300000000.00000099999999999999;
+  double _3rd=_1st+24.50;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPEDOUBLE(list.head->value)==_1st);
+  assert(TYPEDOUBLE(list.tail->value)==_3rd);
+
+
+  deleteElementAt(&list,0);
+   
+  assert(TYPEDOUBLE(list.head->value)==_2nd);
+  assert(TYPEDOUBLE(list.tail->value)==_3rd);
+  assert(list.length==2);
+
+}
+
+void test_deleteElement_can_delete_the_LAST_element_of_int_type_from_list(){
+  Linked_list list=createList();
+  int _1st =22,_2nd=23,_3rd=24;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPEINT(list.head->value)==_1st);
+  assert(TYPEINT(list.tail->value)==_3rd);
+
+
+  deleteElementAt(&list,list.length-1);
+   
+  assert(TYPEINT(list.head->value)==_1st);
+  assert(TYPEINT(list.tail->value)==_2nd);
+  assert(list.length==2);
+
+}
+
+
+void test_deleteElement_can_delete_the_LAST_element_of_CHAR_type_from_list(){
+  Linked_list list=createList();
+  char _1st ='A',_2nd='a',_3rd='b';
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPECHAR(list.head->value)==_1st);
+  assert(TYPECHAR(list.tail->value)==_3rd);
+
+
+  deleteElementAt(&list,list.length-1);
+   
+  assert(TYPECHAR(list.head->value)==_1st);
+  assert(TYPECHAR(list.tail->value)==_2nd);
+  assert(list.length==2);
+
+
+}
+
+void test_deleteElement_can_delete_the_LAST_element_of_float_type_from_list(){
+  Linked_list list=createList();
+  float _1st =22.5,_2nd=23.0,_3rd=24.50;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPEFLOAT(list.head->value)==_1st);
+  assert(TYPEFLOAT(list.tail->value)==_3rd);
+
+
+  deleteElementAt(&list,list.length-1);
+   
+  assert(TYPEFLOAT(list.head->value)==_1st);
+  assert(TYPEFLOAT(list.tail->value)==_2nd);
+  assert(list.length==2);
+
+
+}
+
+void test_deleteElement_can_delete_the_LAST_element_of_DOUBLE_type_from_list(){
+  Linked_list list=createList();
+  double _1st =229876897678976578976786.5908765789657896578;
+  double _2nd=2300000000.00000099999999999999;
+  double _3rd=_1st+24.50;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPEDOUBLE(list.head->value)==_1st);
+  assert(TYPEDOUBLE(list.tail->value)==_3rd);
+
+
+  deleteElementAt(&list,list.length-1);
+   
+  assert(TYPEDOUBLE(list.head->value)==_1st);
+  assert(TYPEDOUBLE(list.tail->value)==_2nd);
+  assert(list.length==2);
+
+}
+
+void test_deleteElement_can_delete_the_ANY_element_of_DOUBLE_type_from_list(){
+  Linked_list list=createList();
+  double _1st =9.9;
+  double _2nd=23;
+  double _3rd=4.50;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+
+  
+  assert(list.length==3);
+  assert(TYPEDOUBLE(list.head->value)==_1st);
+  assert(TYPEDOUBLE(list.tail->value)==_3rd);
+
+
+  deleteElementAt(&list,2);
+   
+  assert(TYPEDOUBLE(list.head->value)==_1st);
+  assert(TYPEDOUBLE(list.tail->value)==_2nd);
+  assert(list.length==2);
+
+}
