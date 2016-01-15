@@ -40,7 +40,7 @@ void forEach(Linked_list list,ElementProcessor e){
 void *getElementAt(Linked_list list, int index){
   for(int i=0;i<list.length;i++){
   	if(i==index)
-      return list.head->value;
+      return list.head;
   	list.head = list.head->next;
   }
   return NULL;
@@ -56,3 +56,4 @@ int indexOf(Linked_list list, void *value){
   }
   return -1;
 }
+

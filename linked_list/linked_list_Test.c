@@ -104,7 +104,7 @@ void test_forEach_can_do_something_with_each_element(){
   forEach(list,doSomething);
   assert(TYPEINT(list.head->value)==24);
 }
-void test_getElementAt_returns_the_value_at_index(){
+void test_getElementAt_returns_the_value_at_index_int_type_of_list(){
   Linked_list list = createList();
   int _0th,_1st,_2nd,_3rd,_4th,_5th;
   _0th =22;
@@ -120,15 +120,117 @@ void test_getElementAt_returns_the_value_at_index(){
   add_to_list(&list ,&_4th);
   add_to_list(&list ,&_5th);
   
-  assert(TYPEINT(getElementAt(list,0))==22);
-  assert(TYPEINT(getElementAt(list,1))==23);
-  assert(TYPEINT(getElementAt(list,2))==24);
-  assert(TYPEINT(getElementAt(list,3))==25);
-  assert(TYPEINT(getElementAt(list,4))==26);
-  assert(TYPEINT(getElementAt(list,5))==27);
+  Element *e=getElementAt(list,0);
+
+  assert(TYPEINT(e->value)==22);
   assert(getElementAt(list,9)==NULL);
 } 
 
+void test_getElementAt_returns_the_value_at_index_char_type_of_list(){
+  Linked_list list = createList();
+  int _0th,_1st,_2nd,_3rd,_4th;
+  _0th ='A';
+  _1st ='B';
+  _2nd ='b';
+  _3rd ='a';
+  _4th ='A';
+  add_to_list(&list ,&_0th);
+  add_to_list(&list ,&_1st);
+  add_to_list(&list ,&_2nd);
+  add_to_list(&list ,&_3rd);
+  add_to_list(&list ,&_4th);
+  
+  Element *e0=getElementAt(list,0);
+  Element *e1=getElementAt(list,1);
+  Element *e2=getElementAt(list,2);
+  Element *e3=getElementAt(list,3);
+  Element *e4=getElementAt(list,4);
+
+
+  assert(TYPECHAR(e0->value)=='A');
+  assert(TYPECHAR(e1->value)=='B');
+  assert(TYPECHAR(e2->value)=='b');
+  assert(TYPECHAR(e3->value)=='a');
+  assert(TYPECHAR(e4->value)=='A');
+
+  assert(getElementAt(list,9)==NULL);
+}
+
+
+void test_getElementAt_returns_the_value_at_index_float_type_of_list(){
+  Linked_list list = createList();
+  float _0th,_1st,_2nd;
+  _0th =6.50;
+  _1st =99.0;
+  _2nd =10.5;
+  add_to_list(&list ,&_0th);
+  add_to_list(&list ,&_1st);
+  add_to_list(&list ,&_2nd);
+  
+  
+  Element *e0=getElementAt(list,0);
+  Element *e1=getElementAt(list,1);
+  Element *e2=getElementAt(list,2);
+ 
+
+
+  assert(TYPEFLOAT(e0->value)==6.50);
+  assert(TYPEFLOAT(e1->value)==99.0);
+  assert(TYPEFLOAT(e2->value)==10.5);
+  
+
+  assert(getElementAt(list,9)==NULL);
+}
+
+void test_getElementAt_returns_the_value_at_index_double_type_of_list(){
+  Linked_list list = createList();
+  double _0th,_1st,_2nd;
+  _0th =6.50000000000000000000000000000000000000;
+  _1st =99.9999999999876787657865467865786547876546545456754567865478654786546786546754675467546754657545650;
+  _2nd =_2nd+1876578654678654675678546750.5;
+  add_to_list(&list ,&_0th);
+  add_to_list(&list ,&_1st);
+  add_to_list(&list ,&_2nd);
+  
+  
+  Element *e0=getElementAt(list,0);
+  Element *e1=getElementAt(list,1);
+  Element *e2=getElementAt(list,2);
+ 
+
+
+  assert(TYPEDOUBLE(e0->value)==6.50000000000000000000000000000000000000);
+  assert(TYPEDOUBLE(e1->value)==99.9999999999876787657865467865786547876546545456754567865478654786546786546754675467546754657545650);
+  assert(TYPEDOUBLE(e2->value)==_2nd);
+  
+
+  assert(getElementAt(list,9)==NULL);
+}
+
+void test_getElementAt_returns_the_value_at_index_of_any_structure_type_of_list(){
+  Linked_list list = createList();
+
+  typedef struct Intern{
+    int age;
+    char *name;
+    char *companyName;
+  }intern;
+
+    intern i,j;
+    i.age=23;
+    i.name="Seeta";
+    i.companyName="ThoughtWorks";
+  
+  add_to_list(&list ,&i);
+  
+  Element *e0=getElementAt(list,0);
+  j= *(intern*)e0->value;
+
+  assert(i.age==j.age); 
+  assert(i.name==j.name);
+  assert(i.companyName==j.companyName);
+  assert(getElementAt(list,9)==NULL);
+}
 void test_indexOf_can_find_the_index_of_int_type_of_element_from_array(){
   Linked_list list = createList();
   int _0th,_1st,_2nd,_3rd,_4th,_5th,_6th;
@@ -204,3 +306,5 @@ void test_indexOf_can_find_the_index_of_double_type_of_element_from_list(){
   assert(indexOf(list,&_1st)==1);
 
 }
+
+
