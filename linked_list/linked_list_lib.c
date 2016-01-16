@@ -84,3 +84,13 @@ void *deleteElementAt(Linked_list *list, int index){
 	
 	return NULL;
 };
+
+int asArray(Linked_list list, void **array, int maxElements){
+	Element *temp;	
+	maxElements =list.length>maxElements?list.length:maxElements;
+	for(int i=0;i<maxElements;i++){
+		temp=getElementAt(list,i);
+		array[i]=temp->value;
+	}
+	return maxElements;
+}

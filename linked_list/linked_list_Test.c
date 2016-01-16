@@ -6,7 +6,7 @@
 #define TYPEINT *(int *)
 #define TYPEFLOAT *(float *)
 #define TYPEDOUBLE *(double *)
-void test_create_impty_linked_list(){
+void test_for_create_impty_linked_list(){
     Linked_list list =createList();
     assert(list.length==0);
     assert(list.head ==NULL);
@@ -14,7 +14,7 @@ void test_create_impty_linked_list(){
 
 }
 
-void test_add_to_list_can_add_int_type_value_at_the_end_of_list(){
+void test_for_add_to_list_it_add_int_type_value_at_the_end_of_list(){
   Linked_list list = createList();
   int first = 23;
   assert(1==add_to_list(&list ,&first));
@@ -24,7 +24,7 @@ void test_add_to_list_can_add_int_type_value_at_the_end_of_list(){
   assert(list.length==1);
 }
 
-void test_add_to_list_can_add_float_type_value_at_the_end_of_list(){
+void test_for_add_to_list_it_add_float_type_value_at_the_end_of_list(){
   Linked_list list = createList();
   float _1st = 23.5;
   assert(1==add_to_list(&list ,&_1st));
@@ -35,7 +35,7 @@ void test_add_to_list_can_add_float_type_value_at_the_end_of_list(){
 }
 
 
-void test_add_to_list_can_add_double_type_value_at_the_end_of_list(){
+void test_for_add_to_list_it_add_double_type_value_at_the_end_of_list(){
   Linked_list list = createList();
   
   double _1st = 23.9999999999999999999999999999999999999999999999999999999999999995;
@@ -51,7 +51,7 @@ void test_add_to_list_can_add_double_type_value_at_the_end_of_list(){
   assert(list.length==2);
 }
 
-void test_add_to_list_can_add_CHAR_type_ELEMENT_at_the_end_of_list(){
+void test_for_add_to_list_it_add_CHAR_type_ELEMENT_at_the_end_of_list(){
   Linked_list list = createList();
   char _1st = 'K',_2nd='9';
   assert(1==add_to_list(&list ,&_1st));
@@ -64,7 +64,7 @@ void test_add_to_list_can_add_CHAR_type_ELEMENT_at_the_end_of_list(){
   assert(getElementAt(list,9)==NULL);
 }
 
-void test_add_to_list_can_add_STRUCTURE_type_ELEMENT_at_the_end_of_list(){
+void test_for_add_to_list_it_add_STRUCTURE_type_ELEMENT_at_the_end_of_list(){
   Linked_list list = createList();
 
   typedef struct Intern{
@@ -87,7 +87,7 @@ void test_add_to_list_can_add_STRUCTURE_type_ELEMENT_at_the_end_of_list(){
   assert(i.companyName==j.companyName);
   assert(getElementAt(list,9)==NULL);
 }
-void test_get_first_element_returns_first_element_from_the_int_type_of_list(){
+void test_for_get_first_element_returns_first_element_from_the_int_type_of_list(){
   Linked_list list = createList();
   int _1st,_2nd,_3rd;
   _1st =23;
@@ -101,7 +101,7 @@ void test_get_first_element_returns_first_element_from_the_int_type_of_list(){
   assert(TYPEINT(get_first_element)(list)==23);
 }
 
-void test_get_first_element_returns_first_element_from_the_STRUCTURE_type_of_list(){
+void test_for_get_first_element_returns_first_element_from_the_STRUCTURE_type_of_list(){
   Linked_list list = createList();
   typedef struct Intern{
     int age;
@@ -121,7 +121,7 @@ void test_get_first_element_returns_first_element_from_the_STRUCTURE_type_of_lis
 
 }
 
-void test_get_last_element_returns_last_element_from_the_INT_type_of_list(){
+void test_for_get_last_element_returns_last_element_from_the_INT_type_of_list(){
   Linked_list list = createList();
   int _1st,_2nd,_3rd,_4th,_5th;
   _1st =23;
@@ -138,7 +138,7 @@ void test_get_last_element_returns_last_element_from_the_INT_type_of_list(){
 }
 
 
-void test_get_last_element_returns_last_element_from_the_CHAR_type_of_list(){
+void test_for_get_last_element_returns_last_element_from_the_CHAR_type_of_list(){
   Linked_list list = createList();
   char _1st,_2nd,_3rd;
   _1st ='a';
@@ -151,7 +151,7 @@ void test_get_last_element_returns_last_element_from_the_CHAR_type_of_list(){
 }
 
 
-void test_get_last_element_returns_last_element_from_the_float_type_of_list(){
+void test_for_get_last_element_returns_last_element_from_the_float_type_of_list(){
   Linked_list list = createList();
   float _1st,_2nd,_3rd;
   _1st =905.5;
@@ -164,7 +164,7 @@ void test_get_last_element_returns_last_element_from_the_float_type_of_list(){
 }
 
 
-void test_get_last_element_returns_last_element_from_the_double_type_of_list(){
+void test_for_get_last_element_returns_last_element_from_the_double_type_of_list(){
   Linked_list list = createList();
   double _1st,_2nd,_3rd;
   _1st =999999999999.555555559587439857349508734958374598347598373948573948;
@@ -175,7 +175,7 @@ void test_get_last_element_returns_last_element_from_the_double_type_of_list(){
   add_to_list(&list ,&_3rd);
   assert(TYPEDOUBLE(get_last_element(list))==_3rd);
 }
-void test_get_LAST_element_returns_LAST_element_from_the_STRUCTURE_type_of_list(){
+void test_for_get_LAST_element_returns_LAST_element_from_the_STRUCTURE_type_of_list(){
   Linked_list list = createList();
   typedef struct Intern{
     int age;
@@ -201,7 +201,7 @@ void doSomething(void *value){
   TYPEINT(value)+=1;
 }
 
-void test_forEach_can_do_something_with_each_element(){
+void test_for_forEach_it_do_something_with_each_element(){
   Linked_list list = createList();
   int _1st,_2nd,_3rd,_4th,_5th;
   _1st =23;
@@ -217,7 +217,7 @@ void test_forEach_can_do_something_with_each_element(){
   forEach(list,doSomething);
   assert(TYPEINT(list.head->value)==24);
 }
-void test_getElementAt_returns_the_value_at_index_int_type_of_list(){
+void test_for_getElementAt_returns_the_value_at_index_int_type_of_list(){
   Linked_list list = createList();
   int _0th,_1st,_2nd,_3rd,_4th,_5th;
   _0th =22;
@@ -239,7 +239,7 @@ void test_getElementAt_returns_the_value_at_index_int_type_of_list(){
   assert(getElementAt(list,9)==NULL);
 } 
 
-void test_getElementAt_returns_the_value_at_index_char_type_of_list(){
+void test_for_getElementAt_returns_the_value_at_index_char_type_of_list(){
   Linked_list list = createList();
   int _0th,_1st,_2nd,_3rd,_4th;
   _0th ='A';
@@ -270,7 +270,7 @@ void test_getElementAt_returns_the_value_at_index_char_type_of_list(){
 }
 
 
-void test_getElementAt_returns_the_value_at_index_float_type_of_list(){
+void test_for_getElementAt_returns_the_value_at_index_float_type_of_list(){
   Linked_list list = createList();
   float _0th,_1st,_2nd;
   _0th =6.50;
@@ -295,7 +295,7 @@ void test_getElementAt_returns_the_value_at_index_float_type_of_list(){
   assert(getElementAt(list,9)==NULL);
 }
 
-void test_getElementAt_returns_the_value_at_index_double_type_of_list(){
+void test_for_getElementAt_returns_the_value_at_index_double_type_of_list(){
   Linked_list list = createList();
   double _0th,_1st,_2nd;
   _0th =6.50000000000000000000000000000000000000;
@@ -320,7 +320,7 @@ void test_getElementAt_returns_the_value_at_index_double_type_of_list(){
   assert(getElementAt(list,9)==NULL);
 }
 
-void test_getElementAt_returns_the_value_at_index_of_any_structure_type_of_list(){
+void test_for_getElementAt_returns_the_value_at_index_of_any_structure_type_of_list(){
   Linked_list list = createList();
 
   typedef struct Intern{
@@ -344,7 +344,7 @@ void test_getElementAt_returns_the_value_at_index_of_any_structure_type_of_list(
   assert(i.companyName==j.companyName);
   assert(getElementAt(list,9)==NULL);
 }
-void test_indexOf_can_find_the_index_of_int_type_of_element_from_array(){
+void test_for_indexOf_it_find_the_index_of_int_type_of_element_from_array(){
   Linked_list list = createList();
   int _0th,_1st,_2nd,_3rd,_4th,_5th,_6th;
   _0th =22;
@@ -371,7 +371,7 @@ void test_indexOf_can_find_the_index_of_int_type_of_element_from_array(){
 }
 
 
-void test_indexOf_can_find_the_index_of_char_type_of_element_from_array(){
+void test_for_indexOf_it_find_the_index_of_char_type_of_element_from_array(){
   Linked_list list = createList();
   char _0th,_1st,_2nd;
   _0th ='S';
@@ -387,7 +387,7 @@ void test_indexOf_can_find_the_index_of_char_type_of_element_from_array(){
 
 }
 
-void test_indexOf_can_find_the_index_of_float_type_of_element_from_list(){
+void test_for_indexOf_it_find_the_index_of_float_type_of_element_from_list(){
   Linked_list list  =createList();
   float _0th,_1st,_2nd;
   _0th =5.5;
@@ -404,7 +404,7 @@ void test_indexOf_can_find_the_index_of_float_type_of_element_from_list(){
 }
 
 
-void test_indexOf_can_find_the_index_of_double_type_of_element_from_list(){
+void test_for_indexOf_it_find_the_index_of_double_type_of_element_from_list(){
   Linked_list list  =createList();
   double _0th,_1st,_2nd;
   _0th =5.0090000000000000000000000000000000000000000000;
@@ -420,7 +420,7 @@ void test_indexOf_can_find_the_index_of_double_type_of_element_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_first_element_of_int_type_from_list(){
+void test_for_deleteElement_it_delete_the_first_element_of_int_type_from_list(){
   Linked_list list=createList();
   int _1st =22,_2nd=23,_3rd=24;
   add_to_list(&list,&_1st);
@@ -442,7 +442,7 @@ void test_deleteElement_can_delete_the_first_element_of_int_type_from_list(){
 }
 
 
-void test_deleteElement_can_delete_the_first_element_of_CHAR_type_from_list(){
+void test_for_deleteElement_it_delete_the_first_element_of_CHAR_type_from_list(){
   Linked_list list=createList();
   char _1st ='A',_2nd='a',_3rd='b';
   add_to_list(&list,&_1st);
@@ -464,7 +464,7 @@ void test_deleteElement_can_delete_the_first_element_of_CHAR_type_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_first_element_of_float_type_from_list(){
+void test_for_deleteElement_it_delete_the_first_element_of_float_type_from_list(){
   Linked_list list=createList();
   float _1st =22.5,_2nd=23.0,_3rd=24.50;
   add_to_list(&list,&_1st);
@@ -486,9 +486,9 @@ void test_deleteElement_can_delete_the_first_element_of_float_type_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_first_element_of_DOUBLE_type_from_list(){
+void test_for_deleteElement_it_delete_the_first_element_of_DOUBLE_type_from_list(){
   Linked_list list=createList();
-  double _1st =229876897678976578976786.5908765789657896578;
+  double _1st =229876897678976578976786.59087657896578965785908765789657896578590876578965789657859087657896578965785908765789657896578590876578965789657859087657896578965785908765789657896578590876578965789657859087657896578965785908765789657896578590876578965789657859087657896578965785908765789657896578;
   double _2nd=2300000000.00000099999999999999;
   double _3rd=_1st+24.50;
   add_to_list(&list,&_1st);
@@ -509,7 +509,7 @@ void test_deleteElement_can_delete_the_first_element_of_DOUBLE_type_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_LAST_element_of_int_type_from_list(){
+void test_for_deleteElement_it_delete_the_LAST_element_of_int_type_from_list(){
   Linked_list list=createList();
   int _1st =22,_2nd=23,_3rd=24;
   add_to_list(&list,&_1st);
@@ -531,7 +531,7 @@ void test_deleteElement_can_delete_the_LAST_element_of_int_type_from_list(){
 }
 
 
-void test_deleteElement_can_delete_the_LAST_element_of_CHAR_type_from_list(){
+void test_for_deleteElement_it_delete_the_LAST_element_of_CHAR_type_from_list(){
   Linked_list list=createList();
   char _1st ='A',_2nd='a',_3rd='b';
   add_to_list(&list,&_1st);
@@ -553,7 +553,7 @@ void test_deleteElement_can_delete_the_LAST_element_of_CHAR_type_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_LAST_element_of_float_type_from_list(){
+void test_for_deleteElement_it_delete_the_LAST_element_of_float_type_from_list(){
   Linked_list list=createList();
   float _1st =22.5,_2nd=23.0,_3rd=24.50;
   add_to_list(&list,&_1st);
@@ -575,7 +575,7 @@ void test_deleteElement_can_delete_the_LAST_element_of_float_type_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_LAST_element_of_DOUBLE_type_from_list(){
+void test_for_deleteElement_it_delete_the_LAST_element_of_DOUBLE_type_from_list(){
   Linked_list list=createList();
   double _1st =229876897678976578976786.5908765789657896578;
   double _2nd=2300000000.00000099999999999999;
@@ -599,7 +599,7 @@ void test_deleteElement_can_delete_the_LAST_element_of_DOUBLE_type_from_list(){
 }
 
 
-void test_deleteElement_can_delete_the_ANY_element_of_int_type_from_list(){
+void test_for_deleteElement_it_delete_the_ANY_element_of_int_type_from_list(){
   Linked_list list=createList();
   int _1st =22,_2nd=23,_3rd=24;
   add_to_list(&list,&_1st);
@@ -623,7 +623,7 @@ void test_deleteElement_can_delete_the_ANY_element_of_int_type_from_list(){
 }
 
 
-void test_deleteElement_can_delete_the_ANY_element_of_CHAR_type_from_list(){
+void test_for_deleteElement_it_delete_the_ANY_element_of_CHAR_type_from_list(){
   Linked_list list=createList();
   char _1st ='A',_2nd='a',_3rd='b';
   add_to_list(&list,&_1st);
@@ -646,7 +646,7 @@ void test_deleteElement_can_delete_the_ANY_element_of_CHAR_type_from_list(){
 
 }
 
-void test_deleteElement_can_delete_the_ANY_element_of_float_type_from_list(){
+void test_for_deleteElement_it_delete_the_ANY_element_of_float_type_from_list(){
   Linked_list list=createList();
   float _1st =22.5,_2nd=23.0,_3rd=24.50;
   add_to_list(&list,&_1st);
@@ -672,7 +672,7 @@ void test_deleteElement_can_delete_the_ANY_element_of_float_type_from_list(){
 }
 
 
-void test_deleteElement_can_delete_the_ANY_element_of_DOUBLE_type_from_list(){
+void test_for_deleteElement_it_delete_the_ANY_element_of_DOUBLE_type_from_list(){
   Linked_list list=createList();
   double _1st =9.9;
   double _2nd=23;
@@ -693,4 +693,75 @@ void test_deleteElement_can_delete_the_ANY_element_of_DOUBLE_type_from_list(){
   assert(TYPEDOUBLE(list.tail->value)==_2nd);
   assert(list.length==2);
 
+}
+
+void test_for_asArray_it_can_test_for_int(){
+  Linked_list list=createList();
+  int _1st=23,_2nd =24,_3rd=25;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  void *array[3];
+  assert(asArray(list,array,3)==3);
+  Element e1,e2,e3;
+  assert(TYPEINT(array[0])==23);
+  assert(TYPEINT(array[1])==24);
+  assert(TYPEINT(array[2])==25);
+
+}
+
+
+void test_for_asArray_it_can_test_for_float(){
+  Linked_list list=createList();
+  float _1st=23.50,_2nd =24.5,_3rd=25.00;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  void *array[3];
+  assert(asArray(list,array,3)==3);
+  Element e1,e2,e3;
+  assert(TYPEFLOAT(array[0])==23.50);
+  assert(TYPEFLOAT(array[1])==24.5);
+  assert(TYPEFLOAT(array[2])==25.00);
+
+}
+
+
+void test_for_asArray_it_can_test_for_double(){
+  Linked_list list=createList();
+  double _1st=239876890.532468798435168480,_2nd =2455.85585,_3rd=2585.6576854346900;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  void *array[3];
+  assert(asArray(list,array,3)==3);
+  Element e1,e2,e3;
+  assert(TYPEDOUBLE(array[0])==_1st);
+  assert(TYPEDOUBLE(array[1])==_2nd);
+  assert(TYPEDOUBLE(array[2])==_3rd);
+
+}
+
+void test_for_asArray_it_can_test_for_STRUCTURE(){
+  Linked_list list = createList();
+
+  typedef struct Intern{
+    int age;
+    char *name;
+    char *companyName;
+  }intern;
+
+    intern i,j;
+    i.age=23;
+    i.name="Seeta";
+    i.companyName="ThoughtWorks";
+  
+  add_to_list(&list ,&i);
+  j = *(intern *)list.head->value;
+  void *array[3];
+  assert(asArray(list,array,1) == 1);
+  j =*(intern *)array[0];
+  assert(i.age==j.age); 
+  assert(i.name==j.name);
+  assert(i.companyName==j.companyName);
 }
