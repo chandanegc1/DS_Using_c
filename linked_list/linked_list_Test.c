@@ -765,3 +765,22 @@ void test_for_asArray_it_can_test_for_STRUCTURE(){
   assert(i.name==j.name);
   assert(i.companyName==j.companyName);
 }
+
+int isEven(void *hint,void *item){
+    int _item=TYPEINT(item);
+    if(_item%2==0){
+      return 1;
+    }
+    return 0;
+}
+
+void test_for_filter_it_can_filter_the_elements_from_array(){
+  Linked_list list = createList();
+  Linked_list result;
+  int _1st=23,_2nd=24,_3rd=25;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  result = filter(list,isEven,NULL);
+  assert(TYPEINT(result.head->value)==24);
+}

@@ -25,3 +25,6 @@ int indexOf(Linked_list, void *);
 void *deleteElementAt(Linked_list *, int);
 
 int asArray(Linked_list, void **, int maxElements);
+
+typedef int MatchFunc(void* hint, void* item);
+Linked_list  filter(Linked_list, MatchFunc ,void *);

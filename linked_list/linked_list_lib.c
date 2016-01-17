@@ -87,10 +87,22 @@ void *deleteElementAt(Linked_list *list, int index){
 
 int asArray(Linked_list list, void **array, int maxElements){
 	Element *temp;	
-	maxElements =list.length>maxElements?list.length:maxElements;
+	maxElements =list.length<maxElements?list.length:maxElements;
 	for(int i=0;i<maxElements;i++){
 		temp=getElementAt(list,i);
 		array[i]=temp->value;
 	}
 	return maxElements;
 }
+
+Linked_list filter(Linked_list list,MatchFunc match,void *hint){
+	Linked_list result = createList();
+	for(int i=0;i<list.length;i++){
+		if(1==match(hint,list.head->value)){
+			add_to_list(&result,list.head->value);
+		}
+		list.head=list.head->next;
+	}
+	return result;
+}
+
