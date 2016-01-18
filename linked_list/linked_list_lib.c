@@ -1,6 +1,7 @@
 #include "linked_list.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 Linked_list createList(){
 	Linked_list list;
 	list.head=NULL;
@@ -86,11 +87,11 @@ void *deleteElementAt(Linked_list *list, int index){
 };
 
 int asArray(Linked_list list, void **array, int maxElements){
-	Element *temp;	
+	Element *e;	
 	maxElements =list.length<maxElements?list.length:maxElements;
 	for(int i=0;i<maxElements;i++){
-		temp=getElementAt(list,i);
-		array[i]=temp->value;
+		e=getElementAt(list,i);
+		array[i]=e->value;
 	}
 	return maxElements;
 }
@@ -105,4 +106,12 @@ Linked_list filter(Linked_list list,MatchFunc match,void *hint){
 	}
 	return result;
 }
-
+Linked_list reverse(Linked_list list){
+	Linked_list ReversedList=createList();
+	Element *e;
+	for(int i=list.length-1;i>=0;i--){
+		e=getElementAt(list,i);
+		add_to_list(&ReversedList,e->value);
+	}
+	return ReversedList;
+}

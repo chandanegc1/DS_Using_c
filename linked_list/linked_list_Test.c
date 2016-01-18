@@ -776,7 +776,7 @@ int isEven(void *hint,void *item){
 
 void test_for_filter_it_can_filter_the_elements_from_array(){
   Linked_list list = createList();
-  Linked_list result;
+  Linked_list result =createList();
   int _1st=23,_2nd=24,_3rd=25;
   add_to_list(&list,&_1st);
   add_to_list(&list,&_2nd);
@@ -784,3 +784,16 @@ void test_for_filter_it_can_filter_the_elements_from_array(){
   result = filter(list,isEven,NULL);
   assert(TYPEINT(result.head->value)==24);
 }
+
+void test_for_reverse_it_can_reverse_the_int_type_of_list(){
+  Linked_list list=createList();
+  int _1st=22,_2nd=23,_3rd=24;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  Linked_list reversed_list = reverse(list);
+  assert(TYPEINT(reversed_list.head->value)==24);
+  assert(TYPEINT(reversed_list.tail->value)==22);
+
+}
+

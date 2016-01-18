@@ -28,3 +28,5 @@ int asArray(Linked_list, void **, int maxElements);
 
 typedef int MatchFunc(void* hint, void* item);
 Linked_list  filter(Linked_list, MatchFunc ,void *);
+
+Linked_list reverse(Linked_list);
