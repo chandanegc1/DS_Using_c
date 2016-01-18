@@ -61,7 +61,6 @@ void test_for_add_to_list_it_add_CHAR_type_ELEMENT_at_the_end_of_list(){
   assert(TYPECHAR(list.tail->value)=='9');
   assert(list.length==2);
 
-  assert(getElementAt(list,9)==NULL);
 }
 
 void test_for_add_to_list_it_add_STRUCTURE_type_ELEMENT_at_the_end_of_list(){
@@ -233,9 +232,11 @@ void test_for_getElementAt_returns_the_value_at_index_int_type_of_list(){
   add_to_list(&list ,&_4th);
   add_to_list(&list ,&_5th);
   
-  Element *e=getElementAt(list,0);
+  Element *e0=getElementAt(list,0);
+  assert(TYPEINT(e0->value)==22);
 
-  assert(TYPEINT(e->value)==22);
+  Element *e5=getElementAt(list,5);
+  assert(TYPEINT(e5->value)==27);
   assert(getElementAt(list,9)==NULL);
 } 
 
@@ -797,6 +798,34 @@ void test_for_reverse_it_can_reverse_the_int_type_of_list(){
 
 }
 
+void test_of_reverse_for_CHAR_TYPE(){
+  Linked_list list=createList();
+  char _0th='Y',_1st='S',_2nd='e',_3rd='e',_4th='t',_5th='a',_6th=' ',_7th='R',_8th='a',_9th='m';
+    
+  add_to_list(&list,&_0th);
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  add_to_list(&list,&_4th);
+  add_to_list(&list,&_5th);
+  add_to_list(&list,&_6th);
+  add_to_list(&list,&_7th);
+  add_to_list(&list,&_8th);
+  add_to_list(&list,&_9th);
+
+  Linked_list reversed_list = reverse(list);
+  Element *e0=getElementAt(reversed_list,0);
+  Element *e8=getElementAt(reversed_list,8);
+  Element *e3=getElementAt(reversed_list,3);
+  Element *e2=getElementAt(reversed_list,2);
+  Element *e9=getElementAt(reversed_list,9);
+
+  assert(TYPECHAR(e0->value)=='m');
+  assert(TYPECHAR(e8->value)=='S');
+  assert(TYPECHAR(e3->value)==' ');
+  assert(TYPECHAR(e2->value)=='R');
+  assert(TYPECHAR(e9->value)=='Y');
+}
 void increment(void *hint,void *sourceItem,void *destination){
   int _sourceItme=TYPEINT(sourceItem);
   int *_destination = (int *)(destination);
