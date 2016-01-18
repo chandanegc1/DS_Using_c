@@ -34,4 +34,5 @@ Linked_list reverse(Linked_list);
 typedef void ConvertFunc(void* hint, void* sourceItem, void* destinationItem);
 Linked_list map(Linked_list, ConvertFunc, void * );
 
-
+typedef void* Reducer(void* hint, void* previousItem, void* item);
+void *reduce(Linked_list, Reducer, void *hint, void *initialValue);

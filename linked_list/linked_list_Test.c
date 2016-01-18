@@ -813,3 +813,23 @@ void test_for_map_it_can_map_the_int_type_elements_from_list(){
   result = map(list,increment,&hint);
   assert(TYPEINT(result.head->value)==23);
 }
+
+void *sum(void *hint,void *previousItem,void *item){
+  int _item = TYPEINT(item);
+  int *_previousItem = (int *)previousItem;
+  *_previousItem =*_previousItem+_item;
+  return _previousItem;
+}
+
+void test_for_reduce_it_can_reduce_the_int_type_of_element_from_list(){
+  Linked_list list=createList();
+  void *result;
+  int _1st=22,_2nd=26,_3rd=28;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  int hint=1;;
+  int initialValue=8;
+  result=(reduce(list,sum,&hint,&initialValue));
+  assert(TYPEINT(result)==84);
+}

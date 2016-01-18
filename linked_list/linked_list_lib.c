@@ -126,3 +126,11 @@ Linked_list map(Linked_list list, ConvertFunc convert, void *hint){
 	}
 	return mapped;
 }
+void *reduce(Linked_list list, Reducer reduce, void *hint, void *initialValue){
+	Element *e = list.head;
+	for(int i=0;i<list.length;i++){
+		initialValue=reduce(hint,initialValue,e->value);
+		e = e->next;
+	}
+	return initialValue;
+}
