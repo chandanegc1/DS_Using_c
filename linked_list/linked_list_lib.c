@@ -115,3 +115,14 @@ Linked_list reverse(Linked_list list){
 	}
 	return ReversedList;
 }
+Linked_list map(Linked_list list, ConvertFunc convert, void *hint){
+	Linked_list mapped = createList();
+	Element *e = list.head;
+	for(int i=0;i<list.length;i++){
+		void *destination  = (void *)malloc(sizeof(void *));
+		convert(hint,e->value,destination);
+		add_to_list(&mapped,destination);
+		e = e->next;
+	}
+	return mapped;
+}

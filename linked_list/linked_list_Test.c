@@ -797,3 +797,19 @@ void test_for_reverse_it_can_reverse_the_int_type_of_list(){
 
 }
 
+void increment(void *hint,void *sourceItem,void *destination){
+  int _sourceItme=TYPEINT(sourceItem);
+  int *_destination = (int *)(destination);
+  *_destination = _sourceItme+1;
+}
+void test_for_map_it_can_map_the_int_type_elements_from_list(){
+  Linked_list list=createList();
+  Linked_list result=createList();
+  int _1st=22,_2nd=26,_3rd=28;
+  add_to_list(&list,&_1st);
+  add_to_list(&list,&_2nd);
+  add_to_list(&list,&_3rd);
+  int hint=0;
+  result = map(list,increment,&hint);
+  assert(TYPEINT(result.head->value)==23);
+}

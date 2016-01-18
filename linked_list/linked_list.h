@@ -30,3 +30,8 @@ typedef int MatchFunc(void* hint, void* item);
 Linked_list  filter(Linked_list, MatchFunc ,void *);
 
 Linked_list reverse(Linked_list);
+
+typedef void ConvertFunc(void* hint, void* sourceItem, void* destinationItem);
+Linked_list map(Linked_list, ConvertFunc, void * );
+
+
