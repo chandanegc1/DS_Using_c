@@ -1,9 +1,8 @@
 #Data Structures Using C 
 
-##It is Data Structure Library Using C.
 ##Theres is so many work which can be easy to do if we will have this library.
 
-##ArrayUtil=>
+###ArrayUtil=>
        The ArrayUtil contains base, typeSize ,length.
        base which is a pointer to the array
        typeSize,  which is size of one array element
