@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "linked_list.h"
@@ -826,6 +827,28 @@ void test_of_reverse_for_CHAR_TYPE(){
   assert(TYPECHAR(e2->value)=='R');
   assert(TYPECHAR(e9->value)=='Y');
 }
+void test_of_reverse_for_STRING_TYPE(){
+  Linked_list list=createList();
+  char _0th[] = "Seeta",_1st[] = " ",_2nd[]="Ram",_3rd[]="Yadav";
+  add_to_list(&list,_0th);
+  add_to_list(&list,_1st);
+  add_to_list(&list,_2nd);
+  add_to_list(&list,_3rd);
+
+
+  Linked_list reversed_list = reverse(list);
+  Element *e0=getElementAt(reversed_list,0);
+  Element *e1=getElementAt(reversed_list,1);
+  Element *e2=getElementAt(reversed_list,2);
+  Element *e3=getElementAt(reversed_list,3);
+
+  assert(memcmp(e0->value,_3rd,sizeof(_3rd)) == 0);
+  assert(memcmp(e1->value,_2nd,sizeof(_2nd)) == 0);
+  assert(memcmp(e2->value,_1st,sizeof(_1st)) == 0);
+  assert(memcmp(e3->value,_0th,sizeof(_0th)) == 0);
+
+}
+
 void increment(void *hint,void *sourceItem,void *destination){
   int _sourceItme=TYPEINT(sourceItem);
   int *_destination = (int *)(destination);
