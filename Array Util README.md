@@ -1,6 +1,6 @@
 #Data Structures Using C 
 
-##Theres is so many work which can be easy to do if we will have this library.
+##There is so many work which can be easy to do if we will have this library.
 
 ###ArrayUtil=>
        The ArrayUtil contains base, typeSize ,length.
